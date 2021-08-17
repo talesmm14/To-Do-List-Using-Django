@@ -1,8 +1,9 @@
 from todo.serializers import TaskSerializer
 from django.http import Http404
-from rest_framework import views, Response, status
-from models import Task
-from serializers import TaskSerializer
+from rest_framework import views, status
+from rest_framework.response import Response
+from todo.models import Task
+from todo.serializers import TaskSerializer
 
 class TaskListView(views.APIView):
     def get(self, request, format=None):
