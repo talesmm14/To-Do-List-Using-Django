@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List using Django</title>
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+    <div class="container">
+        <h2>ToDo List using Django</h2>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p>
+                <label for="new-task">Add Item</label>
+                <label id="new-task" type="text">{{ form.title }}</label>
+                <button type="submit" name="Submit Task">Add</button>
+            </p>
+        </form>
+        <h3>TO-DO</h3>
+        <ul id="incomplete-tasks"></ul>
+
+        {% for task in tasks %}
+        <li>
+            <label><a href="{% url 'concluded' task.id %}"> {{ task }} </a></label>
+            <a href="{% url 'update' task.id %}"><button class="edit">Update</button></a>
+            <a href="{% url 'delete' task.id %}"><button class="delete">Delete</button></a>
+        </li>
+    </form>
+        {% endfor %}
+
+        <h3>Completed</h3>
+        <ul id="completed-tasks">
+
+            {% for task in tasks_conclued %}
+            <li>
+                <a href="{% url 'concluded' task.id %}"> {{ task }} </a>
+            </li>
+            {% endfor %}
+
+        </ul>
+    </div>
+</body>
+
+</html>

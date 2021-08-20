@@ -18,10 +18,13 @@ docker exec -it <id_container> python manage.py createsuperuser
 
 ## Chamadas urls
 ### Entrar no Django Admin
-http://127.0.0.1:8000/admin/
+localhost:8000/admin/
 
-### Visualizar e criar To-Do's
-http://127.0.0.1:8000/api/tasks
+### [REST] Visualizar e criar To-Do's
+localhost:8000/api/tasks
 
-### Obter, atualizar e deletar To-Do's
-http://127.0.0.1:8000/api/tasks
+### [REST] Obter, atualizar e deletar To-Do's
+localhost:8000/api/tasks
+
+### [FORM] To-Do List em html
+localhost:8000/
